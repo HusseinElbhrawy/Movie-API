@@ -1,0 +1,764 @@
+{
+	"info": {
+		"_postman_id": "84744734-36b3-4ce3-a5a8-9728fd482e65",
+		"name": "Movies API V2",
+		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Scripts\" tab**\n\nAdding tests to your requests can help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/fa30ea0a-373d-4545-a668-e7b283cca343/aW1hZ2UucG5n\" alt=\"\" height=\"1530\" width=\"2162\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n    \n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17942228"
+	},
+	"item": [
+		{
+			"name": "Files",
+			"item": [
+				{
+					"name": "Image",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/D:/New Personal/New Pictures/Instagram/IMG_20180114_010937_520.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/posters/upload",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posters",
+								"upload"
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "show Image",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/posters/IMG_20180114_010937_520.jpg",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posters",
+								"IMG_20180114_010937_520.jpg"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movies",
+			"item": [
+				{
+					"name": "Movie",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/D:/New Personal/New Pictures/Instagram/IMG_20170927_125513_557.jpg"
+								},
+								{
+									"key": "title",
+									"value": "Avenger End Game 122",
+									"type": "text"
+								},
+								{
+									"key": "director",
+									"value": "Russo Brothers",
+									"type": "text"
+								},
+								{
+									"key": "studio",
+									"value": "Marvel",
+									"type": "text"
+								},
+								{
+									"key": "movieCast[]",
+									"value": "RDJ",
+									"type": "text"
+								},
+								{
+									"key": "movieCast[]",
+									"value": "Scarlett Johansson",
+									"type": "text"
+								},
+								{
+									"key": "releaseYear",
+									"value": "2014",
+									"type": "text"
+								},
+								{
+									"key": "poster",
+									"value": "poster.png",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "posterUrl",
+									"value": "urldsadasd",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/movies",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"movies"
+							],
+							"query": [
+								{
+									"key": "image",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "title",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "director",
+									"value": "Avenger End Game",
+									"disabled": true
+								},
+								{
+									"key": "studio",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "movieCast[]",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "movieCast[]",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "releaseYear",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "poster",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "posterUrl",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "test-upload",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/husse/OneDrive/Desktop/444485661_7582202961833942_2372274228432998560_n.jpg",
+									"disabled": true
+								},
+								{
+									"key": "title",
+									"value": "Avenger End Game 6",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "director",
+									"value": "Russo Brothers",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "studio",
+									"value": "Marvel",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "movieCast[]",
+									"value": "RDJ",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "movieCast[]",
+									"value": "Scarlett Johansson",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "releaseYear",
+									"value": "2014",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "poster",
+									"value": "poster.png",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "posterUrl",
+									"value": "urldsadasd",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/movies/test-upload",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"movies",
+								"test-upload"
+							],
+							"query": [
+								{
+									"key": "image",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "title",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "director",
+									"value": "Avenger End Game",
+									"disabled": true
+								},
+								{
+									"key": "studio",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "movieCast[]",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "movieCast[]",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "releaseYear",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "poster",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "posterUrl",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/movies",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"movies"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{base_url}}/movies/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"movies",
+								"1"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "Movie",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/D:/New Personal/New Pictures/back.jpg",
+									"disabled": true
+								},
+								{
+									"key": "title",
+									"value": "New Movie Title",
+									"type": "text"
+								},
+								{
+									"key": "director",
+									"value": "Russo Brothers",
+									"type": "text"
+								},
+								{
+									"key": "studio",
+									"value": "Marvel",
+									"type": "text"
+								},
+								{
+									"key": "movieCast[]",
+									"value": "RDJ",
+									"type": "text"
+								},
+								{
+									"key": "movieCast[]",
+									"value": "Scarlett Johansson",
+									"type": "text"
+								},
+								{
+									"key": "releaseYear",
+									"value": "2000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/movies",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"movies"
+							],
+							"query": [
+								{
+									"key": "image",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "title",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "director",
+									"value": "Avenger End Game",
+									"disabled": true
+								},
+								{
+									"key": "studio",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "movieCast[]",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "movieCast[]",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "releaseYear",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "poster",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "posterUrl",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful DELETE request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/movies",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"movies"
+							]
+						},
+						"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"hussein\",\r\n    \"password\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \r\n    \"name\":\"hussein2\",\r\n    \"username\":\"hussein2\",\r\n    \"email\":\"h2@gmail.com\",\r\n    \"password\":\"12345\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \r\n    \"refreshToken\":\"384c2956-8941-48c2-bfa2-172271ee7388\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/refresh",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Forgot Password",
+			"item": [
+				{
+					"name": "VerifyMail",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "hm2392001@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/forgot-password/verifyMail",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"forgot-password",
+								"verifyMail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verifyOtp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"email\":\"hm2392001@gmail.com\",\r\n    \"otp\":\"136737\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/forgot-password/verifyOtp",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"forgot-password",
+								"verifyOtp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "changePassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"email\":\"hm2392001@gmail.com\",\r\n    \"password\":\"123456\",\r\n    \"confirmPassword\":\"123456\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/forgot-password/changePassword",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"forgot-password",
+								"changePassword"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1",
+			"disabled": true
+		},
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080/api"
+		},
+		{
+			"key": "token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
