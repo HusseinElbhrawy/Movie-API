@@ -32,6 +32,8 @@ public class ForgotPasswordController {
     private  final PasswordEncoder passwordEncoder;
 
 
+
+
     @PostMapping("/verifyMail")
     public ResponseEntity<Map<String ,String>> verifyMail(@RequestPart("email") String email) throws MessagingException {
         System.out.println("Email Sent is " + email);
