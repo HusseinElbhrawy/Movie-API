@@ -4,27 +4,27 @@
 
 
 #### To Connect to Database 
-- spring-boot-starter-data-jpa
-- mysql-connector-j
+- `spring-boot-starter-data-jpa`
+- `mysql-connector-j`
 #### To Make Validation on Data
-- spring-boot-starter-validation
+- `spring-boot-starter-validation`
 #### To Run Project 
-- spring-boot-starter-web
+- `spring-boot-starter-web`
 #### To make boli code
-- lombok
+- `lombok`
 #### To Convert Data From DTO To Entity 
-- modelmapper
+- `modelmapper`
 
 ### To Auth and App Security
-- spring-boot-starter-security
-- jjwt-impl
-- jjwt-api
-- jjwt-jackson
+- `spring-boot-starter-security`
+- `jjwt-impl`
+- `jjwt-api`
+- `jjwt-jackson`
 
 ### To Send Email 
-- spring-boot-starter-mail
+- `spring-boot-starter-mail`
 ### To Make docs and swagger 
-- springdoc-openapi-starter-webmvc-ui
+- `springdoc-openapi-starter-webmvc-ui`
 
 
 ---
